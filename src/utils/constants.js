@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  SERVER_URI: "http://api.hkung.me",
+  SERVER_URI: "https://api.hkung.me",
 
   SEARCH_TYPES: {
     TEAM: "Team",
