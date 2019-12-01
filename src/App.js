@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Routes from 'routes';
+import ReactNotification from "react-notifications-component";
+import Routes from "routes";
 
 function App() {
   return (
     <div>
       <Routes />
+      <ReactNotification />
     </div>
   );
 }
