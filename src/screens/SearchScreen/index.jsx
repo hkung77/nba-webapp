@@ -33,12 +33,11 @@ const SearchScreen = () => {
     // Since there are only two search types at the moment, we can use a turnary comparrison
     const URL =
       searchType === CONSTANTS.SEARCH_TYPES.PLAYER
-        ? `${CONSTANTS.SERVER_URI}/nba/playerSearch?search_term=${searchTerm}`
-        : `${CONSTANTS.SERVER_URI}/nba/teamSearch?search_term=${searchTerm}`;
+        ? `${CONSTANTS.SERVER_URI}/nba/playerSearch/?search_term=${searchTerm}`
+        : `${CONSTANTS.SERVER_URI}/nba/teamSearch/?search_term=${searchTerm}`;
 
     await fetch(URL, {
       method: "GET",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       }
