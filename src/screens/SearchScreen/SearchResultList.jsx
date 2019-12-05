@@ -18,7 +18,7 @@ const SearchResultList = ({ searchResult }) => {
     <Container>
       <CardColumns>
         {searchResult.map(data => (
-          <Card className="container">
+          <Card className="searchResultList-container">
             <Card.Img
               variant="top"
               src={
