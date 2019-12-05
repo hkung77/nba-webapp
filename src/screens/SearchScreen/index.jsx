@@ -38,6 +38,7 @@ const SearchScreen = () => {
 
     await fetch(URL, {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       }
