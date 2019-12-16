@@ -2,12 +2,17 @@ import React from "react";
 
 import ReactNotification from "react-notifications-component";
 import Routes from "routes";
+import AppContextProvider from "contexts/appContext";
 
 function App() {
   return (
     <div>
-      <Routes />
-      <ReactNotification />
+      <AppContextProvider>
+        <>
+          <Routes />
+          <ReactNotification />
+        </>
+      </AppContextProvider>
     </div>
   );
 }

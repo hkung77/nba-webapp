@@ -5,20 +5,27 @@ import { Container, CardColumns, Card, Button } from "react-bootstrap";
 import "./SearchResultList.css";
 
 const propTypes = {
-  searchResult: PropTypes.array
+  searchResult: PropTypes.array,
+  location: PropTypes.object
 };
 
 const defaultProp = {
   searchResult: []
 };
 
-const SearchResultList = ({ searchResult }) => {
-  const handleMorePress = data => {};
+const SearchResultList = ({ searchResult, history }) => {
+  const handleClick = data => {
+    history.push({
+      pathname: "/player",
+      state: { image: data.image, playerId: data.id }
+    });
+  };
+
   return (
     <Container>
       <CardColumns>
         {searchResult.map(data => (
-          <Card className="searchResultList-container">
+          <Card key={data.id} className="searchResultList-container">
             <Card.Img
               variant="top"
               src={
@@ -37,7 +44,7 @@ const SearchResultList = ({ searchResult }) => {
               <Button
                 variant="primary"
                 onClick={() => {
-                  handleMorePress(data);
+                  handleClick(data);
                 }}
               >
                 More info

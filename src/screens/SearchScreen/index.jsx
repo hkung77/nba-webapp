@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import PropTypes from "prop-types";
 import {
   Jumbotron,
   InputGroup,
@@ -11,7 +12,11 @@ import CONSTANTS from "utils/constants";
 import SearchTermDropDown from "./SearchTermDropDown";
 import SearchResultList from "./SearchResultList";
 
-const SearchScreen = () => {
+const propTypes = {
+  history: PropTypes.object
+};
+
+const SearchScreen = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const [searchType, setSearchType] = useState(CONSTANTS.SEARCH_TYPES.PLAYER);
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,9 +109,10 @@ const SearchScreen = () => {
         </InputGroup>
       </Jumbotron>
 
-      <SearchResultList searchResult={searchResult} />
+      <SearchResultList searchResult={searchResult} history={history} />
     </Fragment>
   );
 };
 
+SearchScreen.propTypes = propTypes;
 export default SearchScreen;
