@@ -36,7 +36,6 @@ const SearchResultList = ({ searchResult, history }) => {
             />
             <Card.Body>
               <Card.Title>{data.fullName}</Card.Title>
-              </Card.Text>
               <Button
                 variant="primary"
                 onClick={() => {
