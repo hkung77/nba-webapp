@@ -35,11 +35,7 @@ const SearchResultList = ({ searchResult, history }) => {
               alt="default"
             />
             <Card.Body>
-              <Card.Title>{data.full_name}</Card.Title>
-              <Card.Text
-                className={data.is_active ? "text-success" : "text-danger"}
-              >
-                {data.is_active ? "ACTIVE" : "RETIRED"}
+              <Card.Title>{data.fullName}</Card.Title>
               </Card.Text>
               <Button
                 variant="primary"
