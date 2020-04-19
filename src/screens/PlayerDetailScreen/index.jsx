@@ -9,6 +9,8 @@ import LoadingAnimation from "./LoadingAnimation";
 import PlayerBio from "./PlayerBio";
 import PercentChart from "./PercentChart";
 
+import './index.css';
+
 const propTypes = {
   location: PropTypes.object
 };
@@ -20,7 +22,7 @@ const PlayerDetailScreen = ({ location }) => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `${CONSTANTS.SERVER_URI}/nba/playerDetailsSearch/?player_id=${location.state.playerId}`,
+      `${CONSTANTS.SERVER_URI}/nba/playerDetailsSearch?playerId=${location.state.playerId}`,
       {
         method: "GET",
         headers: {
@@ -59,14 +61,14 @@ const PlayerDetailScreen = ({ location }) => {
   return (
     <>
       <Jumbotron className="pb-0 mb-0">
-        <Row className="d-flex justify-content-between">
-          <div className="d-flex">
+        <Row className="playerDetailBanner d-flex justify-content-between">
+          <div className="d-flex playerDetailBannerHeader">
             <Image className="d-flex" src={location.state.image} />
-            <h1 className="d-flex align-items-end ml-lg-5">
-              {data.bio ? data.bio.DISPLAY_FIRST_LAST : ""}
+            <h1 className="playerDetailName d-flex align-items-end ml-lg-5">
+              {Object.keys(data).length ? data.bio.commonPlayerInfo[0].displayFirstLast : ""}
             </h1>
           </div>
-          <PlayerBio bio={data.bio || {}} />
+          <PlayerBio bio={data.bio} />
         </Row>
       </Jumbotron>
       <Container>

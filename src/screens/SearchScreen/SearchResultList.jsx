@@ -17,7 +17,7 @@ const SearchResultList = ({ searchResult, history }) => {
   const handleClick = data => {
     history.push({
       pathname: "/player",
-      state: { image: data.image, playerId: data.id }
+      state: { image: data.image, playerId: data.playerId }
     });
   };
 
@@ -25,7 +25,7 @@ const SearchResultList = ({ searchResult, history }) => {
     <Container>
       <CardColumns>
         {searchResult.map(data => (
-          <Card key={data.id} className="searchResultList-container">
+          <Card key={data.playerId} className="searchResultList-container">
             <Card.Img
               variant="top"
               src={
